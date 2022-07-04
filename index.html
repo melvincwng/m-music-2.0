@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <script>
+            function displayPage(divID){
+            var pages = document.getElementsByClassName("page");
+
+            for(var i=0; i<pages.length; i++){
+                if (pages[i].id == divID){
+                    pages[i].style = "display:block;";
+                } else {
+                    pages[i].style = "display:none;";
+                }
+            };
+            }
+        </script>
+        <link href="index.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+    <div id="page_home" class="page">
+        <div class="div_header">
+            <span id="span_header">Listing</span>
+            <span id="span_header_date">28-JUN-2018 12:52 PM</span>
+        </div>
+        <div id="div_products_list">
+            <ul id="ul_products_list">
+                <li class="li_product_item">
+                    <div class="li_product_image"><img src="https://inec.sg/assignment/images/song_0.jpg"></div>
+                    <div class="li_product_name">Hotel California, The Eagles<br><span class="li_product_duration">6.30 minutes</span></div>
+                </li>
+                <li class="li_product_item">
+                    <div class="li_product_image"><img src="https://inec.sg/assignment/images/song_0.jpg"></div>
+                    <div class="li_product_name">Hotel California, The Eagles<br><span class="li_product_duration">6.30 minutes</span></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="page_details" class="page">
+        <div class="div_header">
+            <span id="span_header"><img id="btn_product_details_back" src="img/back_white.png">Shape Of You</span>
+        </div>
+        <div id="div_product_details">
+            <div id="div_product_details_img">
+                <img src="https://inec.sg/assignment/images/song_2.jpg">
+            </div>
+            <div id="div_product_details_data">
+                <div class="div_product_details_data_cell">
+                    <span class="product_details_data_name">Artist</span><br>Ed Sheeran
+                </div>
+                <div class="div_product_details_data_cell">
+                        <span class="product_details_data_name">Genre</span><br>Pop
+                </div>
+                <div class="div_product_details_data_cell">
+                        <span class="product_details_data_name">Release</span><br>Yes
+                </div>
+                <div class="div_product_details_data_cell">
+                        <span class="product_details_data_name">Duration</span><br>3.53
+                </div>
+            </div>
+            <div id="div_product_details_footer">
+                WHERE TO FIND >
+            </div>
+        </div>
+    </div>
+    <div id="page_map" class="page">
+        <div id="div_header_product_map" class="div_header">
+            <span id="span_header"><img id="btn_product_map_back" src="img/back_white.png">Where</span>
+        </div>
+        <div id="div_product_map">
+        </div>
+    </div>
+    </body>
+</html>

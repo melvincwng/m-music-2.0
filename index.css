@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.div_header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 48px;
+    width: 100%;
+    background-color:silver;
+    line-height: 48px;
+    padding: 0 16px;
+}
+
+.div_header img {
+    position: relative;
+    top: 6px;
+    height: 24px;
+    width: 24px;
+    margin-right: 4px;
+}
+
+#span_header {
+    color: white; 
+    float: left;
+}
+
+#span_header_date {
+    color: grey; 
+    font-weight: 600;
+    font-size: 14px;
+    float: right;
+    position: relative;
+    left: -32px;
+}
+
+#div_products_list {
+    margin: 48px 0 0 0;
+    padding: 0;
+}
+
+#ul_products_list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#ul_products_list li {
+    height: 60px;
+    border: lightgrey solid 1px;
+}
+
+.li_product_image {
+    padding: 6px;
+}
+
+.li_product_image img {
+    height: 48px;
+    width: 48px;
+    float: left;
+}
+
+.li_product_name {
+   position: relative;
+   left: 10px;
+}
+
+.li_product_duration {
+    color: grey;
+    font-weight: 600;
+    font-size: 12px;
+    position: relative;
+    top: 2px;
+}
+
+#div_product_details {
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+#div_product_details_img {
+    margin: 0;
+    padding: 16px;
+}
+
+#div_product_details_img img {
+    width: 100%;
+    max-height: 300px;
+    height: 50%;
+    border: 1px solid lightgrey;
+}
+
+#div_product_details_data {
+    padding: 0 16px;
+}
+
+.div_product_details_data_cell {
+    display: inline-block;
+    width: 24%;
+    font-weight: 600;
+}
+
+.product_details_data_name {
+    font-size: 14px;
+    color: grey;
+}
+
+#div_product_details_footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 48px;
+    width: 100%;
+    background-color:rgb(93, 93, 93);
+    line-height: 48px;
+    padding: 0 16px;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight:600;
+}
+
+#div_product_map {
+    width: 100%;
+    height: 100%;
+    margin-top: 48px;
+}
