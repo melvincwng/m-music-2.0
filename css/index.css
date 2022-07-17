@@ -36,6 +36,7 @@ body {
   font-size: 13px;
   float: right;
   position: relative;
+  margin-right: 64px;
 }
 
 #div_products_list {
@@ -224,6 +225,7 @@ audio {
 
   .datetime_clock {
     position: static;
+    margin-right: 0px;
   }
 
   #page_listing,
