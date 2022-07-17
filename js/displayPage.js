@@ -11,7 +11,7 @@ function displayPage(divID, songID = undefined) {
   }
 
   // For details page - there is additional logic
-  if (divID === "page_details") {
+  if (divID === "page_details" && songID !== undefined) {
     const savedSongs = JSON.parse(localStorage.getItem("savedSongs"));
     const selectedSong = savedSongs[songID];
     const musicDetailsImage = document.getElementById(
