@@ -196,8 +196,8 @@ span.fixed_length {
   padding-left: 128px;
 }
 
-/* Fix mobile responsiveness - for mobile phones <= 480px */
-@media only screen and (max-width: 480px) {
+/* Fix mobile responsiveness - for mobile phones & tablets (aka <= 768px) */
+@media only screen and (max-width: 768px) {
   .div_header {
     height: 90px;
     display: flex;
