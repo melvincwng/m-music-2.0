@@ -10,7 +10,11 @@ function updateClock() {
     .replace(/ /g, "-"); //replaces all the empty spaces (e.g. 17 Jul 2022 with '-')
   const localeTimeString = date.toLocaleTimeString();
   const formattedDateTime = localeDateString + " " + localeTimeString;
-  document.getElementById("datetime_clock").innerHTML = formattedDateTime;
+  const clocks = document.getElementsByClassName("datetime_clock");
+  for (let i = 0; i < clocks.length; i++) {
+    const clock = clocks[i];
+    clock.innerHTML = formattedDateTime;
+  }
 }
 
 setInterval(updateClock, 1000);

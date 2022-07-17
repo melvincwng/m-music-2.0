@@ -16,8 +16,9 @@
   <div>
     <div id="page_listing" class="page">
       <div class="div_header">
+        <img src="./img/logo.png" alt="Company logo" id="companyLogo" />
         <span id="span_header">Music Listing</span>
-        <span id="datetime_clock">
+        <span class="datetime_clock">
             <img src="img/loading.gif" />
         </span>
       </div>
@@ -50,10 +51,10 @@
     </div>
     <div id="page_details" class="page">
       <div class="div_header">
-        <span id="span_header">
-            <img id="btn_product_details_back" src="img/back_white.png" onclick="displayPage('page_listing')" >
-                Shape Of You
-            </img>
+        <img id="btn_product_details_back" src="img/back_white.png" onclick="displayPage('page_listing')" ></img>        
+        <span id="span_header">Shape Of You</span>
+        <span class="datetime_clock">
+          <img src="img/loading.gif" />
         </span>
       </div>
       <div id="div_product_details">
@@ -80,11 +81,25 @@
     </div>
     <div id="page_map" class="page">
       <div id="div_header_product_map" class="div_header">
-        <span id="span_header">
-            <img id="btn_product_map_back" src="img/back_white.png" onclick="displayPage('page_details')">Where
+        <img id="btn_product_details_back" src="img/back_white.png" onclick="displayPage('page_details')" ></img>    
+        <span id="span_header">Where</span>
+        <span class="datetime_clock">
+          <img src="img/loading.gif" />
         </span>
       </div>
       <div id="div_product_map"></div>
     </div>
+    <!-- Footer -->
+    <footer>
+      © 2022
+      <a
+        href="https://github.com/melvincwng"
+        target="_blank"
+        rel="noopener noreferrer"
+        id="footerLink"
+      >
+        &nbsp;Melvin Ng</a
+      >
+    </footer>
   </body>
 </html>
