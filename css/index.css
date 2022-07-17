@@ -12,7 +12,7 @@ body {
   width: 100%;
   background-color: #101010;
   line-height: 48px;
-  padding: 0 16px;
+  padding: 0 32px;
   z-index: 1;
   display: flex;
   justify-content: space-between;
@@ -36,7 +36,7 @@ body {
   font-size: 14px;
   float: right;
   position: relative;
-  left: -32px;
+  margin-right: 64px;
 }
 
 #div_products_list {
@@ -113,6 +113,7 @@ body {
 
 #div_product_details_data {
   padding: 0 16px;
+  text-align: center;
 }
 
 .div_product_details_data_cell {
@@ -135,7 +136,6 @@ body {
   width: 100%;
   background-color: rgb(93, 93, 93);
   line-height: 48px;
-  padding: 0 16px;
   color: white;
   text-align: center;
   font-size: 16px;
@@ -184,6 +184,18 @@ footer {
   margin-top: 70px;
 }
 
+span.fixed_length {
+  width: 170px;
+}
+
+.add-padding-in-header {
+  padding-left: 64px;
+}
+
+.add-padding-in-header-two {
+  padding-left: 128px;
+}
+
 /* Fix mobile responsiveness - for mobile phones <= 480px */
 @media only screen and (max-width: 480px) {
   .div_header {
@@ -217,5 +229,14 @@ footer {
 
   #where_to_find_button {
     padding: 0;
+  }
+
+  .div_header {
+    padding: 0 16px;
+  }
+
+  .add-padding-in-header,
+  .add-padding-in-header-two {
+    padding-left: 0px;
   }
 }
