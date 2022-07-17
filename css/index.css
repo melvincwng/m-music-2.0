@@ -36,7 +36,6 @@ body {
   font-size: 13px;
   float: right;
   position: relative;
-  margin-right: 64px;
 }
 
 #div_products_list {
@@ -214,9 +213,13 @@ audio {
 @media only screen and (max-width: 768px) {
   .div_header {
     height: 90px;
+    line-height: 20px;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    line-height: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
   }
 
   .datetime_clock {
@@ -251,10 +254,6 @@ audio {
 
   #where_to_find_button {
     padding: 0;
-  }
-
-  .div_header {
-    padding: 0 16px;
   }
 
   .add-padding-in-header,
