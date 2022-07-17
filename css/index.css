@@ -175,7 +175,47 @@ footer {
   text-decoration: none;
 }
 
-#companyLogo {
+#websiteLogo {
   width: 137px;
   height: 38px;
+}
+
+#page_listing {
+  margin-top: 70px;
+}
+
+/* Fix mobile responsiveness - for mobile phones <= 480px */
+@media only screen and (max-width: 480px) {
+  .div_header {
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    line-height: 20px;
+  }
+
+  .datetime_clock {
+    position: static;
+  }
+
+  #page_listing,
+  #page_map {
+    margin-top: 110px;
+  }
+
+  #page_details {
+    margin-top: 94px;
+  }
+
+  #div_product_details {
+    margin-bottom: 96px;
+  }
+
+  #div_product_details_data {
+    display: flex;
+    justify-content: center;
+  }
+
+  #where_to_find_button {
+    padding: 0;
+  }
 }
