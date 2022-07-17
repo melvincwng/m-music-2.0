@@ -260,9 +260,11 @@ audio {
   }
 
   #div_product_details_img img {
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
     object-fit: cover;
+    display: flex;
+    margin: 0 auto;
   }
 
   .product_details_data_name {
