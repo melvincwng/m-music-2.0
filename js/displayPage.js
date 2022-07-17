@@ -1,6 +1,6 @@
 // divID can be either page_listing, page_details, page_map. songID can be either 0,1,2 etc...
 function displayPage(divID, songID = undefined) {
-  var pages = document.getElementsByClassName("page");
+  const pages = document.getElementsByClassName("page");
 
   for (var i = 0; i < pages.length; i++) {
     if (pages[i].id == divID) {
@@ -21,6 +21,7 @@ function displayPage(divID, songID = undefined) {
       "div_product_details_data"
     );
     const musicNameElement = document.getElementsByClassName("music_name")[0];
+
     musicNameElement.innerHTML = `${selectedSong.name}`;
     musicDetailsImage.innerHTML = `<img src="${selectedSong.image}" />`;
     musicDetailsData.innerHTML = `
@@ -65,5 +66,13 @@ function displayPage(divID, songID = undefined) {
       </div>
       <br/> 
     `;
+  }
+
+  // Logic to toggle on or off the background gif image (only ON for details page)
+  const body = document.getElementsByTagName("body")[0];
+  if (divID === "page_details") {
+    body.style.backgroundImage = `url(./assets/img/background.gif)`;
+  } else {
+    body.style.backgroundImage = "none";
   }
 }
