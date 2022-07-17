@@ -9,4 +9,8 @@ function onFirstLoad() {
   mapPage.style.display = "none";
 }
 
+function redirectToMainPage() {
+  window.location.href = "https://melvincwng.github.io/m-music/";
+}
+
 onFirstLoad();

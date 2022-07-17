@@ -5,11 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>M Music 2.0</title>
-    <link rel="icon" href="./img/favicon.svg" sizes="32x32" type="image/svg" />
+    <link rel="icon" href="./assets/img/favicon.svg" sizes="32x32" type="image/svg" />
     <link href="css/index.css" rel="stylesheet" type="text/css" />
     <script src="js/onFirstLoad.js" defer></script>
     <script src="js/displayPage.js" defer></script>
     <script src="js/clock.js" defer></script>
+    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <script src="./js/ajaxAPICall.js" defer></script>
+    <script src="./js/stopAudioFromPlaying.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js" defer></script>
     <script src="js/loadGoogleMaps.js" defer></script>
   </head>
@@ -17,91 +20,42 @@
     <div id="page_listing" class="page">
       <div class="div_header">
         <span class="fixed_length">
-          <img src="./img/logo.png" alt="Website logo" id="websiteLogo" />
+          <img src="./assets/img/logo.png" alt="Website logo" id="websiteLogo" onclick="redirectToMainPage()" />
         </span>
         <span class="fixed_length add-padding-in-header" id="span_header">Music Listing</span>
         <span class="datetime_clock fixed_length">
-          <img src="img/loading.gif" />
+          <img src="./assets/img/loading.gif" />
         </span>
       </div>
       <div id="div_products_list">
         <ul id="ul_products_list">
-          <li class="li_product_item">
-            <div class="li_product_image">
-              <img src="https://inec.sg/assignment/images/song_0.jpg" alt="Music Image" onclick="displayPage('page_details')"/>
-            </div>
-            <div class="li_product_name">
-              Hotel California, The Eagles<br /><span
-                class="li_product_duration"
-                >6.30 minutes</span
-              >
-            </div>
-          </li>
-          <li class="li_product_item">
-            <div class="li_product_image">
-              <img src="https://inec.sg/assignment/images/song_0.jpg" alt="Music Image" onclick="displayPage('page_details')"/>
-            </div>
-            <div class="li_product_name">
-              Hotel California, The Eagles<br /><span
-                class="li_product_duration"
-                >6.30 minutes</span
-              >
-            </div>
-          </li>
         </ul>
       </div>
     </div>
     <div id="page_details" class="page">
       <div class="div_header">
         <span class="fixed_length">
-          <img id="btn_product_details_back" src="img/back_white.png" onclick="displayPage('page_listing')" ></img>
+          <img id="btn_product_details_back" src="./assets/img/back_white.png" onclick="displayPage('page_listing'); stopAudioFromPlaying();" ></img>
         </span>        
-        <span class="fixed_length add-padding-in-header" id="span_header">Shape Of You</span>
+        <span class="fixed_length add-padding-in-header music_name" id="span_header"></span>
         <span class="datetime_clock fixed_length">
-          <img src="img/loading.gif" />
+          <img src="./assets/img/loading.gif" />
         </span>
       </div>
       <div id="div_product_details">
-        <div id="div_product_details_img">
-          <img src="https://inec.sg/assignment/images/song_2.jpg" />
-        </div>
-        <div id="div_product_details_data">
-          <div class="div_product_details_data_cell">
-            <span class="product_details_data_name">Artist: </span>
-            <br />
-            <span id="music_artist">Ed Sheeran</span>
-          </div>
-          <br/>
-          <div class="div_product_details_data_cell">
-            <span class="product_details_data_name">Genre: </span>
-            <br />
-            <span id="music_genre">Pop</span>
-          </div>
-          <br/>
-          <div class="div_product_details_data_cell">
-            <span class="product_details_data_name">Release: </span>
-            <br />
-            <span id="music_release">Yes</span>
-          </div>
-          <br/>
-          <div class="div_product_details_data_cell">
-            <span class="product_details_data_name">Duration: </span>
-            <br />
-            <span id="music_duration">3.53</span>
-          </div>
-          <br/>
-        </div>
-        <div id="where_to_find_button" onclick="displayPage('page_map')">WHERE TO FIND ></div>
+        <div id="div_product_details_img"></div>
+        <div id="div_product_details_data"></div>
+        <div id="where_to_find_button" onclick="displayPage('page_map'); stopAudioFromPlaying();">WHERE TO FIND ></div>
       </div>
     </div>
     <div id="page_map" class="page">
       <div id="div_header_product_map" class="div_header">
         <span class="fixed_length">
-          <img id="btn_product_details_back" src="img/back_white.png" onclick="displayPage('page_details')" ></img>
+          <img id="btn_product_details_back" src="./assets/img/back_white.png" onclick="displayPage('page_details')" ></img>
         </span>   
         <span class="fixed_length add-padding-in-header-two" id="span_header">Where</span>
         <span class="datetime_clock fixed_length">
-          <img src="img/loading.gif" />
+          <img src="./assets/img/loading.gif" />
         </span>
       </div>
       <div id="div_product_map"></div>

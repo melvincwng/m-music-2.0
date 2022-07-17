@@ -1,0 +1,29 @@
+{
+  "last_update": "28-JUN-2018 09:54:51 GMT+0800",
+  "songs": [
+    {
+      "name": "Shape Of You",
+      "type": "Pop",
+      "artist": "Ed Sheeran",
+      "release": "yes",
+      "duration": 3.53,
+      "image": "https://inec.sg/assignment/images/song_0.jpg"
+    },
+    {
+      "name": "Gangnan Style",
+      "type": "Pop",
+      "artist": "Psy",
+      "release": "yes",
+      "duration": 3.39,
+      "image": "https://inec.sg/assignment/images/song_1.jpg"
+    },
+    {
+      "name": "Hotel California",
+      "type": "Rock",
+      "artist": "The Eagles",
+      "release": "yes",
+      "duration": 6.3,
+      "image": "https://inec.sg/assignment/images/song_2.jpg"
+    }
+  ]
+}

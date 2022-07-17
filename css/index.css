@@ -33,7 +33,7 @@ body {
 .datetime_clock {
   color: white;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   float: right;
   position: relative;
   margin-right: 64px;
@@ -73,10 +73,11 @@ body {
 
 .li_product_name {
   position: relative;
-  left: 10px;
-  top: 10px;
+  margin-left: 10px;
+  margin-top: 12.5px;
   color: white;
   justify-content: center;
+  cursor: pointer;
 }
 
 .li_product_duration {
@@ -115,15 +116,16 @@ body {
   padding: 0 16px;
   display: flex;
   flex-direction: column;
-  margin-top: 48px;
+  margin-top: 16px;
   width: 100%;
 }
 
 .div_product_details_data_cell {
   display: inline-block;
-  width: 24%;
   font-weight: 600;
   color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .product_details_data_name {
@@ -181,6 +183,7 @@ footer {
 #websiteLogo {
   width: 137px;
   height: 38px;
+  cursor: pointer;
 }
 
 #page_listing {
@@ -197,6 +200,11 @@ span.fixed_length {
 
 .add-padding-in-header-two {
   padding-left: 128px;
+}
+
+audio {
+  width: 275px;
+  height: 40px;
 }
 
 /* Fix mobile responsiveness - for mobile phones & tablets (aka <= 768px) */
@@ -227,7 +235,10 @@ span.fixed_length {
 
   #div_product_details_data {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 0px;
+    padding: 0px;
   }
 
   #where_to_find_button {
@@ -254,13 +265,14 @@ span.fixed_length {
     object-fit: cover;
   }
 
-  #div_product_details_data {
-    flex-direction: row;
-    margin-top: 0px;
-    padding: 0px;
-  }
-
   .product_details_data_name {
     font-size: 14px;
+  }
+}
+
+/* Reduce audio tag size in mobile phones */
+@media only screen and (max-width: 480px) {
+  audio {
+    width: 80vw !important;
   }
 }
