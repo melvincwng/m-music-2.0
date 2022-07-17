@@ -1,5 +1,5 @@
 var settings = {
-  url: "http://inec.sg/assignment/retrieve_records.php",
+  url: "https://inec.sg/assignment/retrieve_records.php",
   method: "GET",
   timeout: 0,
 };
