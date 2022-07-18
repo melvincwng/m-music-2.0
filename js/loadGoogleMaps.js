@@ -9,6 +9,7 @@ function loadGoogleMaps(songID) {
     '<img src="./assets/img/loading.gif" id="loader">';
   const floatingPanelElement = document.getElementById("floating-panel");
   floatingPanelElement.style.display = "none";
+  let arrayOfMarkers = [];
 
   // Step 1 - Check if localStorage contains previously saved/stored map_coordinates for that particular song.
   // If yes, take it out from localStorage. Else if no, create a new array
@@ -42,35 +43,76 @@ function loadGoogleMaps(songID) {
     });
 
     // 3b) Instantiate a Google Map Marker using the user's current position & pinpoint it on the map
-    new google.maps.Marker({
+    const currentLocationMarker = new google.maps.Marker({
       position: gmapCoords,
       map,
       title: "Current position",
       label: "You are here!",
     });
+    arrayOfMarkers.push(currentLocationMarker);
 
     // 3c) If gmapsCoordsArray = [], this code block won't run --> no markers get added on screen
     // If localStorage previously had coords stored, gmapCoordsArray = [{lat: '', lng:''}...], hence we Load up all the markers object stored in the localStorage onto the map
     for (i = 0; i < gmapCoordsArray.length; i++) {
-      new google.maps.Marker({
+      const marker = new google.maps.Marker({
         position: gmapCoordsArray[i],
         map,
       });
+
+      // This is for the floating panel functionality (delete, hide, show markers)
+      arrayOfMarkers.push(marker);
     }
 
     // 3d) Add a click event listener to the map so that when the user clicks on the map, more Google Map markers can be added onto the map
     // We then store newly added coordinates/markers into the gmapCoordsArray and save it for future uses
     map.addListener("click", function (event) {
-      new google.maps.Marker({
+      const marker = new google.maps.Marker({
         position: event.latLng,
         map,
       });
       gmapCoordsArray.push(event.latLng);
       localStorage[`song_${songID}_map_coordinates`] =
         JSON.stringify(gmapCoordsArray);
+
+      // This is for the floating panel functionality (delete, hide, show markers)
+      arrayOfMarkers.push(marker);
     });
 
-    // 3e) Once everything in your Google Map is loaded --> load this UI component & make it appear
+    // 3e) Add event listeners for the 3 buttons in the floating-panel element.
+    // These buttons delete, show, and hide the markers.
+    // Reference from Google Maps Documentation: https://developers.google.com/maps/documentation/javascript/examples/marker-remove
+    document
+      .getElementById("delete-markers")
+      .addEventListener("click", deleteMarkers);
+    document
+      .getElementById("show-markers")
+      .addEventListener("click", showMarkers);
+    document
+      .getElementById("hide-markers")
+      .addEventListener("click", hideMarkers);
+
+    // Sets the map on all markers in the array.
+    function setMapOnAll(map = null) {
+      for (let i = 0; i < arrayOfMarkers.length; i++) {
+        arrayOfMarkers[i].setMap(map);
+      }
+    }
+    // Deletes all markers in the array by removing references to them.
+    function deleteMarkers() {
+      hideMarkers();
+      arrayOfMarkers = [];
+      localStorage.removeItem(`song_${songID}_map_coordinates`);
+    }
+    // Removes the markers from the map, but keeps them in the array.
+    function hideMarkers() {
+      setMapOnAll(null);
+    }
+    // Shows any markers currently in the array.
+    function showMarkers() {
+      setMapOnAll(map);
+    }
+
+    // 3f) Once everything in your Google Map is loaded --> load this UI component & make it appear
     floatingPanelElement.style.display = "block";
   }
 }
