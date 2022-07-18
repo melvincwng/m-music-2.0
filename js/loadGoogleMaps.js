@@ -1,11 +1,22 @@
-function loadGoogleMaps() {
+function loadGoogleMaps(songID) {
+  // Step 0 - Need to do these steps 0 first beforehand to ensure a smooth SPA experience
+  // Else if user e.g. already loaded song 1's coordinates --> then proceed to go to song 2's coordinates
+  // User will see song 1's map first, before being prompted to load song 2's map, then user can then see song 2's map (not very intuitive UI-wise)
+  // Hence, we add a loader component such that every time this function is called --> a loader UI component appears on the screen
+  // Once your Google Maps is fully instantiated, then this loader component will automatically get over-ridden & replaced by a Google Maps <div></div> (logic from Google Maps API)
+  const googleMapElement = document.getElementById("div_product_map");
+  googleMapElement.innerHTML =
+    '<img src="./assets/img/loading.gif" id="loader">';
+
   // Step 1 - Check if localStorage contains previously saved/stored map_coordinates for that particular song.
   // If yes, take it out from localStorage. Else if no, create a new array
   let gmapCoordsArray = [];
-  if (!localStorage["map_coordinates"]) {
+  if (!localStorage[`song_${songID}_map_coordinates`]) {
     gmapCoordsArray = [];
   } else {
-    gmapCoordsArray = JSON.parse(localStorage["map_coordinates"]);
+    gmapCoordsArray = JSON.parse(
+      localStorage[`song_${songID}_map_coordinates`]
+    );
   }
 
   // Step 2 - Check if the browser is able to use geolocation functionalities (Older browswers do not have window.navigator.geolocation)
@@ -23,7 +34,7 @@ function loadGoogleMaps() {
   let map;
   function initMap() {
     // 3a) Loading up your google maps --> make sure to set certain CSS property like width & height first for the map to appear
-    map = new google.maps.Map(document.getElementById("div_product_map"), {
+    map = new google.maps.Map(googleMapElement, {
       center: gmapCoords,
       zoom: 14,
     });
@@ -32,7 +43,8 @@ function loadGoogleMaps() {
     new google.maps.Marker({
       position: gmapCoords,
       map,
-      title: "Your current position!",
+      title: "Current position",
+      label: "You are here!",
     });
 
     // 3c) If gmapsCoordsArray = [], this code block won't run --> no markers get added on screen
@@ -52,7 +64,8 @@ function loadGoogleMaps() {
         map,
       });
       gmapCoordsArray.push(event.latLng);
-      localStorage["map_coordinates"] = JSON.stringify(gmapCoordsArray);
+      localStorage[`song_${songID}_map_coordinates`] =
+        JSON.stringify(gmapCoordsArray);
     });
   }
 }

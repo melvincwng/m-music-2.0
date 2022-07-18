@@ -14,13 +14,15 @@ function displayPage(divID, songID = undefined) {
   if (divID === "page_details" && songID !== undefined) {
     const savedSongs = JSON.parse(localStorage.getItem("savedSongs"));
     const selectedSong = savedSongs[songID];
+    const musicNameElement = document.getElementsByClassName("music_name")[0];
     const musicDetailsImage = document.getElementById(
       "div_product_details_img"
     );
     const musicDetailsData = document.getElementById(
       "div_product_details_data"
     );
-    const musicNameElement = document.getElementsByClassName("music_name")[0];
+    // Logic for whereToFindButton
+    const whereToFindButton = document.getElementById("where_to_find_button");
 
     musicNameElement.innerHTML = `${selectedSong.name}`;
     musicDetailsImage.innerHTML = `<img src="${selectedSong.image}" />`;
@@ -66,6 +68,11 @@ function displayPage(divID, songID = undefined) {
       </div>
       <br/> 
     `;
+    whereToFindButton.onclick = function () {
+      displayPage("page_map", `${songID}`);
+      loadGoogleMaps(`${songID}`);
+      stopAudioFromPlaying();
+    };
   }
 
   // Logic to toggle on or off the background gif image (only ON for details page)
