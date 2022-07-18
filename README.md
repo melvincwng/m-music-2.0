@@ -8,7 +8,7 @@ This extension of the original M Music web application allows the user to do the
 - b) Click on a music/song & view it's individual details
 - c) Add or remove markers for each song on a Google Map page
 
-M Music 2.0, likewise it's original version, is also still a front-end web app made using HTML, CSS, JS, and jQuery.
+M Music 2.0, like it's original version, is also a front-end web app made using HTML, CSS, JS, and jQuery.
 
 ## Languages/Tools/Libraries used:
 
