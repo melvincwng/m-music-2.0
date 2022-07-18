@@ -37,6 +37,7 @@ For the bonus marks section, I've done the following:
 3. **Added a 'Music Preview' section** which showcases a short audio preview of the selected music when user navigates to the music details page
 4. **Added extra JS scripts** beyond the scope of the assignment (e.g. stopAudioFromPlaying.js)
 5. **Added additional functionalities to hide, show, delete markers** on the Google Map page for each song
+6. **Added functionality to remove individual markers** in Google Maps as well
 
 ## Live Demo:
 
