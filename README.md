@@ -8,7 +8,7 @@ This extension of the original M Music web application allows the user to do the
 - b) Click on a music/song & view it's individual details
 - c) Add or remove markers for each song on a Google Map page
 
-M Music 2.0, likewise it's original version, is also still a front-end web app made using HTML, CSS, JS, and jQuery.
+M Music 2.0, like it's original version, is also a front-end web app made using HTML, CSS, JS, and jQuery.
 
 ## Languages/Tools/Libraries used:
 
@@ -38,7 +38,7 @@ For the bonus marks section, I've done the following:
 4. **Added extra JS scripts** beyond the scope of the assignment (e.g. stopAudioFromPlaying.js)
 5. **Added additional functionalities to hide, show, delete ALL markers** on the Google Map page for each song
 6. **Added functionality to remove individual markers** in Google Maps as well
-7. **Made web app mobile responsive** to enhance UI/UX experience
+7. **Made web app mobile responsive** to enhance user experience
 
 ## Live Demo:
 
