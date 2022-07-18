@@ -35,18 +35,7 @@ function loadGoogleMaps() {
       title: "Your current position!",
     });
 
-    // 3c) Add a click event listener to the map so that when the user clicks on the map, more Google Map markers can be added onto the map
-    // We then store newly added coordinates/markers into the gmapCoordsArray and save it for future uses
-    map.addListener("click", function (event) {
-      gmapCoordsArray.push(event.latLng);
-      localStorage["map_coordinates"] = JSON.stringify(gmapCoordsArray);
-      new google.maps.Marker({
-        position: event.latLng,
-        map,
-      });
-    });
-
-    // 3d) If gmapsCoordsArray = [], this code block won't run --> no markers get added on screen
+    // 3c) If gmapsCoordsArray = [], this code block won't run --> no markers get added on screen
     // If localStorage previously had coords stored, gmapCoordsArray = [{lat: '', lng:''}...], hence we Load up all the markers object stored in the localStorage onto the map
     for (i = 0; i < gmapCoordsArray.length; i++) {
       new google.maps.Marker({
@@ -54,5 +43,16 @@ function loadGoogleMaps() {
         map,
       });
     }
+
+    // 3d) Add a click event listener to the map so that when the user clicks on the map, more Google Map markers can be added onto the map
+    // We then store newly added coordinates/markers into the gmapCoordsArray and save it for future uses
+    map.addListener("click", function (event) {
+      new google.maps.Marker({
+        position: event.latLng,
+        map,
+      });
+      gmapCoordsArray.push(event.latLng);
+      localStorage["map_coordinates"] = JSON.stringify(gmapCoordsArray);
+    });
   }
 }
