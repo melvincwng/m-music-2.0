@@ -24,7 +24,6 @@ body {
   height: 24px;
   width: 24px;
   margin-right: 4px;
-  margin-bottom: 4px;
 }
 
 #span_header {
@@ -210,6 +209,15 @@ span.fixed_length_back_arrow {
 audio {
   width: 275px;
   height: 40px;
+}
+
+#loader {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Fix mobile responsiveness - for mobile phones & tablets (aka <= 768px) */
