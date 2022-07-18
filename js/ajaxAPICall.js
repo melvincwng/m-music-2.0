@@ -59,6 +59,8 @@ $.ajax(settings)
         // If there are more songs added in the PHP endpoint in future:
         //  - Temporarily it's mp3Source url will be undefined aka the audio tags cannot be played yet (as there is no valid src url)
         //  - Then we would need to update and add in more code to this portion (link up the new songs to a valid mp3 source url - can google and find where the new songs are hosted on CDNs)
+        //  - Please take note this block of code to add Music Preview is just a 'Proof Of Concept'
+        //  - I'm aware that the logic here could break if there are changes made to the JSON response returned from the backend PHP web service (e.g. Order of songs changes, or name of songs changes - assume we validate by song names)
         song.mp3Source = "undefined";
         savedSongs.push(song);
       }
