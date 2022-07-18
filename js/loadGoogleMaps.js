@@ -13,14 +13,19 @@ function loadGoogleMaps(songID) {
 
   // Step 1 - Check if localStorage contains previously saved/stored map_coordinates for that particular song.
   // If yes, take it out from localStorage. Else if no, create a new array
-  let gmapCoordsArray = [];
-  if (!localStorage[`song_${songID}_map_coordinates`]) {
-    gmapCoordsArray = [];
-  } else {
-    gmapCoordsArray = JSON.parse(
-      localStorage[`song_${songID}_map_coordinates`]
-    );
+  let gmapCoordsArray;
+
+  function checkIfLocalStorageHasPriorMapCoordinates() {
+    if (!localStorage[`song_${songID}_map_coordinates`]) {
+      gmapCoordsArray = [];
+    } else {
+      gmapCoordsArray = JSON.parse(
+        localStorage[`song_${songID}_map_coordinates`]
+      );
+    }
   }
+
+  checkIfLocalStorageHasPriorMapCoordinates();
 
   // Step 2 - Check if the browser is able to use geolocation functionalities (Older browswers do not have window.navigator.geolocation)
   // If able to use geolocation, we use it to get the currentPosition of the user & store it in a variable 'gmapCoords'
@@ -51,7 +56,7 @@ function loadGoogleMaps(songID) {
     });
     arrayOfMarkers.push(currentLocationMarker);
 
-    // 3c) If gmapsCoordsArray = [], this code block won't run --> no markers get added on screen
+    // 3c) If gmapCoordsArray = [], this code block won't run --> no markers get added on screen
     // If localStorage previously had coords stored, gmapCoordsArray = [{lat: '', lng:''}...], hence we Load up all the markers object stored in the localStorage onto the map
     for (i = 0; i < gmapCoordsArray.length; i++) {
       const marker = new google.maps.Marker({
@@ -66,6 +71,9 @@ function loadGoogleMaps(songID) {
     // 3d) Add a click event listener to the map so that when the user clicks on the map, more Google Map markers can be added onto the map
     // We then store newly added coordinates/markers into the gmapCoordsArray and save it for future uses
     map.addListener("click", function (event) {
+      // When you click on the map again, need to re-run this function again to make sure you get the latest updated data for gmapCoordsArray
+      checkIfLocalStorageHasPriorMapCoordinates();
+
       const marker = new google.maps.Marker({
         position: event.latLng,
         map,
