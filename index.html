@@ -13,7 +13,7 @@
     <script src="js/jquery-3.6.0.min.js" defer></script>
     <script src="./js/ajaxAPICall.js" defer></script>
     <script src="./js/stopAudioFromPlaying.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg" defer></script>
     <script src="js/loadGoogleMaps.js" defer></script>
   </head>
   <div>
@@ -57,6 +57,11 @@
         <span class="datetime_clock fixed_length">
           <img src="./assets/img/loading.gif" />
         </span>
+      </div>
+      <div id="floating-panel">
+        <input id="hide-markers" type="button" value="Hide Markers" />
+        <input id="show-markers" type="button" value="Show Markers" />
+        <input id="delete-markers" type="button" value="Delete Markers" />
       </div>
       <div id="div_product_map"></div>
     </div>

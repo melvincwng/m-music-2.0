@@ -220,6 +220,22 @@ audio {
   transform: translate(-50%, -50%);
 }
 
+/* CSS for floating panel in Google Maps - Reference: https://developers.google.com/maps/documentation/javascript/examples/marker-remove */
+#floating-panel {
+  position: absolute;
+  bottom: 29px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: "Roboto", "sans-serif";
+  line-height: 30px;
+  padding-left: 10px;
+}
+
 /* Fix mobile responsiveness - for mobile phones & tablets (aka <= 768px) */
 @media only screen and (max-width: 768px) {
   .div_header {
