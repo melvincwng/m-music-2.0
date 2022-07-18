@@ -151,8 +151,7 @@ body {
 }
 
 /** 
-    Google Maps automatically sets the map with these 2 CSS - position: relative & overflow: hidden which causes the map to be hidden
-    Hence, need to set position: static & overflow: visible to make it appear
+    Google Maps automatically sets the map with these 2 CSS - position: relative & overflow: hidden
 */
 #div_product_map {
   width: 100vw;
