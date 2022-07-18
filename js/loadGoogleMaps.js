@@ -7,6 +7,8 @@ function loadGoogleMaps(songID) {
   const googleMapElement = document.getElementById("div_product_map");
   googleMapElement.innerHTML =
     '<img src="./assets/img/loading.gif" id="loader">';
+  const floatingPanelElement = document.getElementById("floating-panel");
+  floatingPanelElement.style.display = "none";
 
   // Step 1 - Check if localStorage contains previously saved/stored map_coordinates for that particular song.
   // If yes, take it out from localStorage. Else if no, create a new array
@@ -67,5 +69,8 @@ function loadGoogleMaps(songID) {
       localStorage[`song_${songID}_map_coordinates`] =
         JSON.stringify(gmapCoordsArray);
     });
+
+    // 3e) Once everything in your Google Map is loaded --> load this UI component & make it appear
+    floatingPanelElement.style.display = "block";
   }
 }
