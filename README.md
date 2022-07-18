@@ -38,6 +38,7 @@ For the bonus marks section, I've done the following:
 4. **Added extra JS scripts** beyond the scope of the assignment (e.g. stopAudioFromPlaying.js)
 5. **Added additional functionalities to hide, show, delete ALL markers** on the Google Map page for each song
 6. **Added functionality to remove individual markers** in Google Maps as well
+7. **Made web app mobile responsive** to enhance UI/UX experience
 
 ## Live Demo:
 

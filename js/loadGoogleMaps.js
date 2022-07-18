@@ -109,12 +109,47 @@ function loadGoogleMaps(songID) {
     // 3e) Add event listeners for the 3 buttons in the floating-panel element.
     // These buttons delete, show, and hide ALL the markers.
     // Reference from Google Maps Documentation: https://developers.google.com/maps/documentation/javascript/examples/marker-remove
-    const deleteMarkersButton = document.getElementById("delete-markers");
-    const showMarkersButton = document.getElementById("show-markers");
-    const hideMarkersButton = document.getElementById("hide-markers");
-    deleteMarkersButton.addEventListener("click", deleteAllMarkers);
-    showMarkersButton.addEventListener("click", showAllMarkers);
-    hideMarkersButton.addEventListener("click", hideAllMarkers);
+
+    // **UPDATE**
+    // I self discovered an issue whereby if you go from e.g. Song 1's Google map --> Song 2's Google map --> Song 3's Google Map
+    // The floating panel buttons will have 3 event listeners! (NO GOOD --> Because once I click on e.g. Song 3 Delete All Markers --> it deletes for ALL Song 1,2,3 markers instead of just Song 3's markers)
+    // This is a bug --> Hence two options: A) See below (this was implemented) OR B) removeEventListener() --> but this one not working
+    // References from SOF: https://stackoverflow.com/questions/9251837/how-to-remove-all-listeners-in-an-element
+    function resetEventListenersForFloatingPanelButtons() {
+      const oldDeleteMarkersButton = document.getElementById("delete-markers");
+      const oldShowMarkersButton = document.getElementById("show-markers");
+      const oldHideMarkersButton = document.getElementById("hide-markers");
+
+      // This removes ALL existing event handlers on the buttons (prevent the unexpected bug)
+      const newDeleteMarkersButton = oldDeleteMarkersButton.cloneNode(true);
+      const newShowMarkersButton = oldShowMarkersButton.cloneNode(true);
+      const newHideMarkersButton = oldHideMarkersButton.cloneNode(true);
+
+      oldDeleteMarkersButton.parentNode.replaceChild(
+        newDeleteMarkersButton,
+        oldDeleteMarkersButton
+      );
+      oldShowMarkersButton.parentNode.replaceChild(
+        newShowMarkersButton,
+        oldShowMarkersButton
+      );
+      oldHideMarkersButton.parentNode.replaceChild(
+        newHideMarkersButton,
+        oldHideMarkersButton
+      );
+
+      newDeleteMarkersButton.addEventListener("click", deleteAllMarkers);
+      newShowMarkersButton.addEventListener("click", showAllMarkers);
+      newHideMarkersButton.addEventListener("click", hideAllMarkers);
+
+      // Somemore, removeEventListener() functions are not working...
+      // Hence used alternative method above
+      // deleteMarkersButton.removeEventListener("click", deleteAllMarkers);
+      // showMarkersButton.removeEventListener("click", showAllMarkers);
+      // hideMarkersButton.removeEventListener("click", hideAllMarkers);
+    }
+
+    resetEventListenersForFloatingPanelButtons();
 
     // Sets the map on all markers in the array. Think of it as A) setMap(null) --> marker won't be set on a map AND setMap(map) --> marker will be set on a map
     function setMapOnAll(map = null) {
