@@ -9,7 +9,7 @@ This extension of the original M Music web application allows the user to do the
 3) Add markers for each song on a Google Map page
 4) Installable as a PWA & Service Worker functionality
 5) Ability to receive Push Notifications
-6) And **Many More...** (refer to section on 'Advanced/Extra features')
+6) And **Many More...** 🤯🤯🤯 (refer to section on 'Advanced/Extra features')
 
 M Music 2.0, like it's original version, is also a front-end web app made using HTML, CSS, JS, and jQuery.
 
