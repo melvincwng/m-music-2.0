@@ -135,6 +135,10 @@ body {
   color: grey;
 }
 
+#musicDetailsImage {
+  cursor: pointer;
+}
+
 #where_to_find_button {
   position: fixed;
   bottom: 0px;

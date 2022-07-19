@@ -33,12 +33,12 @@ The Map page would allow users to add & remove 'Markers' on a Google Map. Each s
 For the bonus marks section, I've done the following:
 
 1. **Improve UI/UX design** of the original index.html template provided (customized & integrated my own HTML/CSS)
-2. **Added a tiny JS script (clock.js)** that displays a real time clock/timer in the UI
-3. **Added a 'Music Preview' section** which showcases a short audio preview of the selected music when user navigates to the music details page
-4. **Added extra JS scripts** beyond the scope of the assignment (e.g. stopAudioFromPlaying.js)
-5. **Added additional functionalities to hide, show, delete ALL markers** on the Google Map page for each song
-6. **Added functionality to remove individual markers** in Google Maps as well
-7. **Made web app mobile responsive** to enhance user experience
+2. **Made web app mobile responsive** to enhance user experience
+3. **Added a tiny JS script (clock.js)** that displays a real time clock/timer in the UI
+4. **Added a 'Music Preview' section** which showcases a short audio preview of the selected music when user navigates to the music details page
+5. **Added extra JS scripts & functionality** beyond the scope of the assignment (e.g. stopAudioFromPlaying.js & add ability to click on music image to search for the music on Google)
+6. **Added additional functionalities to hide, show, delete ALL markers** on the Google Map page for each song
+7. **Added functionality to remove individual markers** in Google Maps as well
 
 ## Live Demo:
 

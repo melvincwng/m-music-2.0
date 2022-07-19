@@ -23,9 +23,10 @@ function displayPage(divID, songID = undefined) {
     );
     // Logic for whereToFindButton
     const whereToFindButton = document.getElementById("where_to_find_button");
+    const songNameForGoogleSearch = selectedSong.name.replace(" ", "+");
 
     musicNameElement.innerHTML = `${selectedSong.name}`;
-    musicDetailsImage.innerHTML = `<img src="${selectedSong.image}" />`;
+    musicDetailsImage.innerHTML = `<img src="${selectedSong.image}" id="musicDetailsImage" title="Click to google that song 🎵" onclick="openGoogleSearchQuery('${songNameForGoogleSearch}')">`;
     musicDetailsData.innerHTML = `
       <div class="div_product_details_data_cell">
         <span class="product_details_data_name">Artist: </span>
@@ -82,4 +83,8 @@ function displayPage(divID, songID = undefined) {
   } else {
     body.style.backgroundImage = "none";
   }
+}
+
+function openGoogleSearchQuery(songName) {
+  window.open(`https://www.google.com/search?q=${songName}`);
 }
