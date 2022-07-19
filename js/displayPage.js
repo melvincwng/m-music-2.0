@@ -26,7 +26,7 @@ function displayPage(divID, songID = undefined) {
     const songNameForGoogleSearch = selectedSong.name.replace(" ", "+");
 
     musicNameElement.innerHTML = `${selectedSong.name}`;
-    musicDetailsImage.innerHTML = `<img src="${selectedSong.image}" id="musicDetailsImage" title="Click to google that song 🎵" onclick="openGoogleSearchQuery('${songNameForGoogleSearch}')">`;
+    musicDetailsImage.innerHTML = `<img src="${selectedSong.image}" id="musicDetailsImage" title="Click to google this song 🎵" onclick="openGoogleSearchQuery('${songNameForGoogleSearch}')">`;
     musicDetailsData.innerHTML = `
       <div class="div_product_details_data_cell">
         <span class="product_details_data_name">Artist: </span>
