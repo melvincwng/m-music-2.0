@@ -150,6 +150,10 @@ body {
   cursor: pointer;
 }
 
+#where_to_find_button:hover {
+  background-color: gray;
+}
+
 /** 
     Google Maps automatically sets the map with these 2 CSS - position: relative & overflow: hidden
 */
