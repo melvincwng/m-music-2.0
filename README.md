@@ -4,9 +4,12 @@ WMP Assignment 2
 
 This extension of the original M Music web application allows the user to do the following:
 
-- a) View a list of music fetched from a backend API endpoint
-- b) Click on a music/song & view it's individual details
-- c) Add or remove markers for each song on a Google Map page
+1) View a list of music fetched from a backend API endpoint
+2) Click on a music/song & view it's individual details
+3) Add markers for each song on a Google Map page
+4) Installable as a PWA & Service Worker functionality
+5) Ability to receive Push Notifications
+6) And **Many More...** (refer to section on 'Advanced/Extra features')
 
 M Music 2.0, like it's original version, is also a front-end web app made using HTML, CSS, JS, and jQuery.
 
