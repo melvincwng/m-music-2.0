@@ -12,13 +12,11 @@ $.ajax(settings)
     for (let i = 0; i < songs.length; i++) {
       const song = songs[i];
       musicUnorderedList.innerHTML += `
-      <li class="li_product_item" id=${i}>
+      <li class="li_product_item" id=${i} onclick="displayPage('page_details', ${i})">
         <div class="li_product_image">
-          <img src="${
-            song.image
-          }" alt="Music Image" onclick="displayPage('page_details', ${i})"/>
+          <img src="${song.image}" alt="Music Image" />
         </div>
-        <div class="li_product_name" onclick="displayPage('page_details', ${i})">
+        <div class="li_product_name">
           ${song.name}
           <br />
           <span class="li_product_duration">
