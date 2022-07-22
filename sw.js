@@ -9,7 +9,35 @@ self.addEventListener("install", function (event) {
     caches
       .open(CACHE_VER)
       .then(function (cache) {
-        return cache.addAll([""]);
+        return cache.addAll([
+          "index.html",
+          "css/index.css",
+          "js/ajaxAPICall.js",
+          "js/clock.js",
+          "js/displayPage.js",
+          "js/jquery-3.6.0.min.js",
+          "js/loadGoogleMaps.js",
+          "js/loadServiceWorker.js",
+          "js/onFirstLoad.js",
+          "js/stopAudioFromPlaying.js",
+          "assets/icons/icon-72x72.png",
+          "assets/icons/icon-96x96.png",
+          "assets/icons/icon-128x128.png",
+          "assets/icons/icon-144x144.png",
+          "assets/icons/icon-152x152.png",
+          "assets/icons/icon-192x192.png",
+          "assets/icons/icon-384x384.png",
+          "assets/icons/icon-512x512.png",
+          "assets/img/back_white.png",
+          "assets/img/background.gif",
+          "assets/img/demo.jpg",
+          "assets/img/favicon.svg",
+          "assets/img/loading.gif",
+          "assets/img/logo.png",
+          "assets/img/music.png",
+          "sw.js",
+          "manifest.json",
+        ]);
       })
       .then(self.skipWaiting())
   );
