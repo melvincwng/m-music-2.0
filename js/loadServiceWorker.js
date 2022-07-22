@@ -8,7 +8,7 @@ window.onload = function () {
     console.log("Service Worker not supported.");
   } else {
     navigator.serviceWorker
-      .register("./js/sw.js")
+      .register("sw.js")
       .then(function () {
         console.log("Registered Service Worker.");
       })
