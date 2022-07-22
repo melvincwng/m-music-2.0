@@ -64,6 +64,8 @@ self.addEventListener("activate", function (event) {
 // It is comparing whether the files stored in the cache matches the files it is going to fetch via API calls
 // If it matches --> then just use the file from the cache (as dictated by the 'response' object)
 // Else do a fetch() api call to get the actual resource --> then save that fetched resource into the cache
+// FYI - Google Maps Javascript API cannot be cached! You need an internet connection for the Google Maps JS API to properly display the map.
+// Reference: https://stackoverflow.com/questions/37458862/is-it-possible-to-show-google-map-without-internet-api-v3-javascript
 self.addEventListener("fetch", function (event) {
   console.log("Service Worker fetching.");
   console.log("Fetch:", event.request.url);
