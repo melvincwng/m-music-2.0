@@ -118,7 +118,12 @@ self.addEventListener("notificationclick", function (event) {
   console.log("[Service Worker] Notification click Received.");
   console.log("Redirection URL --> ", event.notification.data.url);
   event.notification.close();
-  event.waitUntil(clients.openWindow(event.notification.data.url));
+
+  // Faster execution of opening the URL
+  clients.openWindow(event.notification.data.url);
+
+  // Slow execution of opening the URL: https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil
+  // event.waitUntil(clients.openWindow(event.notification.data.url));
 });
 
 // 6) Additional functionality - Client Messaging (transfer data between client & SW)
