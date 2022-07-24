@@ -1,7 +1,7 @@
 // A script written to subscribe SW to push notifications
 
 const appServerPublicKey =
-  "BGcLUerHllraZvHoNt5pqzwKYX83OfU-8UubBM9RUAjHm00yj-Lb2lODVrg8xBiSGCwL9iz0hnJoZpdq13OlATs";
+  "BFvUCOBUgo5pVyfD8IZAHYZJt3t99svMMIfyTBELOmiLvTDAL3g-oE30u7jEYUJUPY7TJqRs39Cv97tLTQ27nbA";
 
 function convert(base64String) {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
