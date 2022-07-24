@@ -85,3 +85,28 @@ self.addEventListener("fetch", function (event) {
     })
   );
 });
+
+self.addEventListener("push", function (event) {
+  var notificationText = "New Message ✉️!";
+  if (event.data) {
+    notificationText = event.data.text();
+  }
+
+  const title = "M Music 2.0";
+  const options = {
+    body: notificationText,
+    icon: "./assets/icons/icon-128x128.png",
+    badge: "./assets/icons/icon-128x128.png",
+  };
+
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
+self.addEventListener("notificationclick", function (event) {
+  //What happens when clicked on Notification
+  console.log("[Service Worker] Notification click Received.");
+
+  event.notification.close();
+
+  event.waitUntil(clients.openWindow(event.notification.data.url));
+});
