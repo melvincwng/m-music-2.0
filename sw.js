@@ -34,7 +34,6 @@ self.addEventListener("install", function (event) {
           "assets/img/loading.gif",
           "assets/img/logo.png",
           "assets/img/music.png",
-          "sw.js",
           "manifest.json",
         ]);
       })
@@ -87,7 +86,7 @@ self.addEventListener("fetch", function (event) {
 });
 
 self.addEventListener("push", function (event) {
-  var notificationText = "New Message ✉️!";
+  var notificationText = "New Message!";
   if (event.data) {
     notificationText = event.data.text();
   }
