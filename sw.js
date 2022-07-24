@@ -144,7 +144,7 @@ function send_message_to_all_clients(msg) {
   clients.matchAll().then((clients) => {
     clients.forEach((client) => {
       send_message_to_client(client, msg);
-      console.log("[Service Worker] From Client:" + msg);
+      console.log("[Service Worker] To Client: " + msg);
     });
   });
 }
