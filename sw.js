@@ -135,6 +135,7 @@ function send_message_to_client(client, msg) {
       }
     };
 
+    // Allows the SW to send a message to the client
     client.postMessage(msg, [msg_chan.port2]);
   });
 }
