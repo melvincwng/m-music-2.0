@@ -110,6 +110,7 @@ self.addEventListener("push", function (event) {
     },
   };
 
+  send_message_to_all_clients(notificationText);
   event.waitUntil(self.registration.showNotification(title, options));
 });
 
@@ -120,3 +121,30 @@ self.addEventListener("notificationclick", function (event) {
   event.notification.close();
   event.waitUntil(clients.openWindow(event.notification.data.url));
 });
+
+// 6) Additional functionality - Client Messaging (transfer data between client & SW)
+// For more info: https://developer.mozilla.org/en-US/docs/Web/API/Client/postMessage
+function send_message_to_client(client, msg) {
+  return new Promise(function (resolve, reject) {
+    var msg_chan = new MessageChannel();
+    msg_chan.port1.onmessage = function (event) {
+      if (event.data.error) {
+        reject(event.data.error);
+      } else {
+        resolve(event.data);
+      }
+    };
+
+    client.postMessage(msg, [msg_chan.port2]);
+  });
+}
+
+function send_message_to_all_clients(msg) {
+  clients.matchAll().then((clients) => {
+    clients.forEach((client) => {
+      send_message_to_client(client, msg).then((m) =>
+        console.log("[Service Worker] From Client:" + msg)
+      );
+    });
+  });
+}

@@ -40,7 +40,6 @@ body {
 }
 
 #div_products_list {
-  margin: 48px 0 0 0;
   padding: 0;
 }
 
@@ -240,6 +239,22 @@ audio {
   font-family: "Roboto", "sans-serif";
   line-height: 30px;
   padding-left: 10px;
+}
+
+#ul_products_list_title,
+#ul_notifications_list_title {
+  color: white;
+  margin-left: 4px;
+}
+
+#ul_notifications_list {
+  color: white;
+  margin: 0px 0px 0px 4px;
+  padding-left: 20px !important;
+}
+
+#div_notifications_list {
+  margin-top: 24px;
 }
 
 /* Fix mobile responsiveness - for mobile phones & tablets (aka <= 768px) */
