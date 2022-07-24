@@ -99,6 +99,12 @@ self.addEventListener("push", function (event) {
     body: notificationText,
     icon: "./assets/icons/icon-128x128.png",
     badge: "./assets/icons/icon-128x128.png",
+    data: {
+      url:
+        window.location.origin === "https://melvincwng.github.io"
+          ? "https://melvincwng.github.io/m-music-2.0/"
+          : "http://127.0.0.1:5500/index.html",
+    },
   };
 
   event.waitUntil(self.registration.showNotification(title, options));
@@ -109,5 +115,5 @@ self.addEventListener("notificationclick", function (event) {
   console.log("[Service Worker] Notification click Received.");
   console.log("Redirection URL --> ", event.notification.data.url);
   event.notification.close();
-  event.waitUntil(clients.openWindow("event.notification.data.url"));
+  event.waitUntil(clients.openWindow(event.notification.data.url));
 });
