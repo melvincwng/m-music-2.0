@@ -94,16 +94,19 @@ self.addEventListener("push", function (event) {
     notificationText = event.data.text();
   }
 
+  // Service workers DO NOT have access to DOM elements (e.g. window.location.origin)
+  // Hence use an alternative, which is self.registration.scope (scope of the registered SW)
+  // Reference: https://stackoverflow.com/questions/29672213/page-urls-in-serviceworker-scope && https://stackoverflow.com/questions/49664665/window-is-not-defined-service-worker
+
   const title = "M Music 2.0";
   const options = {
     body: notificationText,
     icon: "./assets/icons/icon-128x128.png",
     badge: "./assets/icons/icon-128x128.png",
     data: {
-      url:
-        window.location.origin === "https://melvincwng.github.io"
-          ? "https://melvincwng.github.io/m-music-2.0/"
-          : "http://127.0.0.1:5500/index.html",
+      url: self.registration.scope.includes("https://melvincwng.github.io")
+        ? "https://melvincwng.github.io/m-music-2.0/"
+        : "http://127.0.0.1:5500/index.html",
     },
   };
 
