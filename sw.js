@@ -16,7 +16,8 @@ self.addEventListener("install", function (event) {
           "js/displayPage.js",
           "js/jquery-3.6.0.min.js",
           "js/loadGoogleMaps.js",
-          "js/loadServiceWorker.js",
+          "js/registerServiceWorker.js",
+          "js/subscribeSWToPushNotifications.js",
           "js/onFirstLoad.js",
           "js/stopAudioFromPlaying.js",
           "assets/icons/icon-72x72.png",
@@ -34,6 +35,7 @@ self.addEventListener("install", function (event) {
           "assets/img/loading.gif",
           "assets/img/logo.png",
           "assets/img/music.png",
+          "sw.js",
           "manifest.json",
         ]);
       })
@@ -85,8 +87,9 @@ self.addEventListener("fetch", function (event) {
   );
 });
 
+// 4) Configure additional event listener in SW to handle 'push' events (aka receiving push notifications)
 self.addEventListener("push", function (event) {
-  var notificationText = "New Message!";
+  var notificationText = "New Message ✉️!";
   if (event.data) {
     notificationText = event.data.text();
   }
@@ -101,11 +104,10 @@ self.addEventListener("push", function (event) {
   event.waitUntil(self.registration.showNotification(title, options));
 });
 
+// 5) Configure additional event listener in SW to handle 'notificationclick' events (aka how to handle when user clicks a push notification)
 self.addEventListener("notificationclick", function (event) {
-  //What happens when clicked on Notification
   console.log("[Service Worker] Notification click Received.");
-
+  console.log("Redirection URL --> ", event.notification.data.url);
   event.notification.close();
-
-  event.waitUntil(clients.openWindow(event.notification.data.url));
+  event.waitUntil(clients.openWindow("event.notification.data.url"));
 });
