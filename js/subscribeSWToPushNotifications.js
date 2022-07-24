@@ -33,7 +33,7 @@ if ("PushManager" in window) {
       });
   });
 
-  // When service worker receivesa message - see sw.js, this block of code runs
+  // When service worker receives a message - see sw.js, this block of code runs
   navigator.serviceWorker.addEventListener("message", function (event) {
     console.log("[Client] Received From Service Worker: " + event.data);
     if (event.data) {
