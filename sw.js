@@ -35,7 +35,6 @@ self.addEventListener("install", function (event) {
           "assets/img/loading.gif",
           "assets/img/logo.png",
           "assets/img/music.png",
-          "sw.js",
           "manifest.json",
         ]);
       })
@@ -116,12 +115,8 @@ self.addEventListener("push", function (event) {
 
 // 5) Configure additional event listener in SW to handle 'notificationclick' events (aka how to handle when user clicks a push notification)
 self.addEventListener("notificationclick", function (event) {
-  // Reference: https://stackoverflow.com/questions/45562060/uncaught-in-promise-typeerror-something-went-wrong-while-trying-to-open-the-w
-  event.preventDefault();
-
   console.log("[Service Worker] Notification click Received.");
   console.log("Redirection URL --> ", event.notification.data.url);
-
   event.notification.close();
   event.waitUntil(clients.openWindow(event.notification.data.url));
 });
