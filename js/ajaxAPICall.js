@@ -11,21 +11,6 @@ $.ajax(settings)
     const savedSongs = [];
     for (let i = 0; i < songs.length; i++) {
       const song = songs[i];
-      musicUnorderedList.innerHTML += `
-      <li class="li_product_item" id=${i} onclick="displayPage('page_details', ${i})">
-        <div class="li_product_image">
-          <img src="${song.image}" alt="Music Image" />
-        </div>
-        <div class="li_product_name">
-          ${song.name}
-          <br />
-          <span class="li_product_duration">
-            ${song.duration.toFixed(2)} minutes
-          </span>
-        </div>
-      </li>
-      `;
-
       /**
        * Additional JavaScript logic implemented for bonus marks --> generate audio tags that allow the user to actually play the music (after providing a valid mp3 source url)
        * Ideally, this music mp3 source url should come from the backend API GET PHP endpoint. However, it's not implemented there.
@@ -42,17 +27,14 @@ $.ajax(settings)
         // Song for 'Shape Of You'
         song.mp3Source =
           "https://cdns-preview-d.dzcdn.net/stream/c-d8f5b81a6243ddfa4c97b9a4c86a82fa-6.mp3";
-        savedSongs.push(song);
       } else if (i === 1) {
         // Song for 'Gangnam Style'
         song.mp3Source =
           "https://cdns-preview-5.dzcdn.net/stream/c-57793edd9b2473c82d250249b623793f-11.mp3";
-        savedSongs.push(song);
       } else if (i === 2) {
         // Song for 'Hotel California'
         song.mp3Source =
           "https://cdns-preview-8.dzcdn.net/stream/c-8af9cfb9a0454481e21989618e7c5779-4.mp3";
-        savedSongs.push(song);
       } else {
         // If there are more songs added in the PHP endpoint in future:
         //  - Temporarily it's mp3Source url will be undefined aka the audio tags cannot be played yet (as there is no valid src url)
@@ -60,8 +42,24 @@ $.ajax(settings)
         //  - Please take note this block of code to add Music Preview is just a 'Proof Of Concept'
         //  - I'm aware that the logic here could break if there are changes made to the JSON response returned from the backend PHP web service (e.g. Order of songs changes, or name of songs changes - assume we validate by song names)
         song.mp3Source = "undefined";
-        savedSongs.push(song);
       }
+
+      savedSongs.push(song);
+
+      musicUnorderedList.innerHTML += `
+      <li class="li_product_item" id=${i} onclick="displayPage('page_details', ${i})">
+        <div class="li_product_image">
+          <img src="${song.image}" alt="Music Image" />
+        </div>
+        <div class="li_product_name">
+          ${song.name}
+          <br />
+          <span class="li_product_duration">
+            ${song.duration.toFixed(2)} minutes
+          </span>
+        </div>
+      </li>
+      `;
     }
     localStorage.setItem("savedSongs", JSON.stringify(savedSongs));
   })
