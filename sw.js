@@ -139,7 +139,8 @@ function send_message_to_client(client, msg) {
       }
     };
 
-    // Allows the SW to send a message to the client
+    // Allows the client to send a message back to the service worker --> this triggers the 'message' event
+    // Recall port 1 is for client to receive message (client <-- sw) while port 2 is for sw to receive msg (client --> sw)
     client.postMessage(msg, [msg_chan.port2]);
   });
 }
