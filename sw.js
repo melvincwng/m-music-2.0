@@ -128,6 +128,9 @@ self.addEventListener("notificationclick", function (event) {
 
 // 6) Additional functionality - Client Messaging (transfer data between client & SW)
 // For more info: https://developer.mozilla.org/en-US/docs/Web/API/Client/postMessage
+// Useful reference also - that explains more on port 1 and port 2: https://flaviocopes.com/channel-messaging-api/
+// We are at sw.js --> Hence since service worker is the one who created the channel (see reference above), it will use port 1 to send/receive message
+// While the client will use port 2 to send/receive message (see reference above)
 function send_message_to_client(client, msg) {
   return new Promise(function (resolve, reject) {
     var msg_chan = new MessageChannel();
@@ -139,8 +142,13 @@ function send_message_to_client(client, msg) {
       }
     };
 
-    // Allows the client to send a message back to the service worker --> this triggers the 'message' event
-    // Recall port 1 is for client to receive message (client <-- sw) while port 2 is for sw to receive msg (client --> sw)
+    // The postMessage() method of the Client interface allows a service worker to send a message to a client (a Window, Worker, or SharedWorker).
+    // Reference: https://developer.mozilla.org/en-US/docs/Web/API/Client/postMessage
+    // Please refer to https://flaviocopes.com/channel-messaging-api/ for more info (cltrl F 'otherWindow.postMessage()')
+    // In short, think of it as "placeYouWantToSendYourMessage".postMessage() there using that port
+    // Hence line 152 means in pseudo-code: "I want to send a message to the client at port 2"
+    // In the notes, recall it's originally mentioned that "port 1 is for client to receive message (client <-- sw) while port 2 is for sw to receive msg (client --> sw)"
+    // Hence I guess that statement above is only correct if the client is the one who initiated the MessageChannel() api (see flavioscopes ref for more info)... anw I updated my notes already
     client.postMessage(msg, [msg_chan.port2]);
   });
 }

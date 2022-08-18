@@ -33,9 +33,9 @@ if ("PushManager" in window) {
       });
   });
 
-  // When service worker receives a message - see sw.js lines 142-144, this block of code runs
+  // When client receives a message - see sw.js lines 145-153, then this block of code runs
   // In short try to visualize here --> at this point, 1 whole message cycle is complete from the service worker to the client
-  // In summary: sw receive push notification --> grabs the data, and send to the client --> client sends a msg (postMessage) --> triggers msg event --> which is captured by sw to add <li></li> in the DOM
+  // In summary: sw receive push notification --> grabs the data, and send to the client --> sw sends a msg to client (via postMessage method) --> triggers a 'msg' event --> which is captured by the client to then add <li></li> in the DOM
   navigator.serviceWorker.addEventListener("message", function (event) {
     console.log("[Client] Received From Service Worker: " + event.data);
     if (event.data) {
