@@ -1,4 +1,8 @@
-import mockMusicDataResponse from "../assets/mockMusicData.json";
+/**
+ * How to import a JSON file into a .js file/script which then is loaded into a HTML page
+ * Reference: https://stackoverflow.com/questions/69548822/how-to-import-js-that-imported-json-from-html
+ */
+import mockMusicDataResponse from "../assets/mockMusicData.json" assert { type: "json" };
 
 var settings = {
   url: "https://inec.sg/assignment/retrieve_records.php",
