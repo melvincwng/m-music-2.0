@@ -1,3 +1,5 @@
+import mockMusicDataResponse from "../assets/mockMusicData.json";
+
 var settings = {
   url: "https://inec.sg/assignment/retrieve_records.php",
   method: "GET",
@@ -7,7 +9,14 @@ var settings = {
 $.ajax(settings)
   .done(function (response) {
     const musicUnorderedList = document.getElementById("ul_products_list");
-    const songs = response.songs;
+    /**
+     * **UPDATE 15/12/2022**
+     * Currently, the PHP endpoint is not returning the proper JSON response
+     * Hence we are using the mockMusicData.json file instead
+     * Commenting out line 18 & using line 19 instead
+     */
+    // const songs = response.songs;
+    const songs = mockMusicDataResponse.songs;
     const savedSongs = [];
     for (let i = 0; i < songs.length; i++) {
       const song = songs[i];
