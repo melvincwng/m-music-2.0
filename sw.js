@@ -1,5 +1,5 @@
 // Service worker has 3 lifestyle states --> 'install', 'activate', 'fetch' (after we first 'register' it)
-const CACHE_VER = "cache-v1";
+const CACHE_VER = "cache-v2";
 
 // 1) During 'install' phase, we can tell the SW to open the cache and then tell it to store which specific files in the cache
 self.addEventListener("install", function (event) {
